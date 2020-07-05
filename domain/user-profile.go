@@ -4,11 +4,11 @@ import "time"
 
 // UserProfile defines model for UserProfile.
 type UserProfile struct {
-	UserID                 int                      `json:"userId"`
-	Name                   string                   `json:"name"`
-	UserName               string                   `json:"userName"`
-	LastName               string                   `json:"lastName"`
-	Email                  string                   `json:"email"`
+	UserID                 int                      `json:"userId" db:"id"`
+	Name                   string                   `json:"name" db:"name"`
+	UserName               string                   `json:"userName" db:"username"`
+	LastName               string                   `json:"lastName" db:"last_name"`
+	Email                  string                   `json:"email" db:"email"`
 	Identification         Identification           `json:"identification"`
 	SocialNetwork          []SocialNetwork          `json:"socialNetwork,omitempty"`
 	Gender                 Gender                   `json:"gender"`

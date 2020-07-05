@@ -2,8 +2,27 @@ version: '3'
 services:
   app:
     build: .
+    container_name: go-profiles
     environment: 
         PROFILES_SERVER_PORT: "8080"
         PROFILES_SERVER_HOST: "0.0.0.0"
+        PROFILES_DB_HOSTNAME: "db"
+        SCOPE: "local"
+    depends_on:
+      - db
     ports:
-      - "9999:8080"
+      - "8080:8080"
+
+  db:
+    image: mysql:5.7 
+    command: mysqld --user=root
+    ports:
+      - 3306:3306
+    volumes:
+      - ./sql/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+      - ./data:/var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=profile
+      - MYSQL_USER=profile
+      - MYSQL_PASSWORD=profile
+      - MYSQL_ROOT_PASSWORD=root

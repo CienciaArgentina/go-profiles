@@ -1,6 +1,6 @@
 FROM golang:alpine as builder
 
-RUN apk add upx binutils git
+RUN apk --no-cache add upx binutils git
 
 WORKDIR /app
 
@@ -22,4 +22,5 @@ FROM scratch
 
 WORKDIR /app
 COPY --from=builder /app/main .
+
 ENTRYPOINT ["/app/main"]

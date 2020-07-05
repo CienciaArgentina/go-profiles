@@ -3,6 +3,8 @@ package config
 import (
 	"errors"
 	"fmt"
+
+	"github.com/CienciaArgentina/go-backend-commons/config"
 )
 
 // Configuration for the User Profile resource
@@ -11,6 +13,7 @@ type Configuration struct {
 		Port uint32
 		Host string
 	}
+	DB      config.Database
 	Verbose bool `yaml:"-"`
 }
 

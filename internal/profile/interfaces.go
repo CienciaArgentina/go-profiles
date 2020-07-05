@@ -7,16 +7,16 @@ import (
 
 // UserProfileRepository manages CRUD operations
 type UserProfileRepository interface {
-	Get(int)
-	Create(domain.UserProfile)
-	Update(domain.UserProfile)
-	Delete(int)
+	Get(int) (domain.UserProfile, error)
+	Create(domain.UserProfile) error
+	Update(domain.UserProfile) error
+	Delete(int) error
 }
 
 // UserProfileService defines the user profile related API
 type UserProfileService interface {
-	FindUserProfile(int)
-	GetOrUpdateUserProfile(domain.UserProfile)
+	FindUserProfile(int) (domain.UserProfile, error)
+	GetOrUpdateUserProfile(domain.UserProfile) error
 }
 
 // UserProfileController defines the user profile controller

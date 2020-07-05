@@ -8,6 +8,7 @@ import (
 	"github.com/CienciaArgentina/go-profiles/config"
 	"github.com/CienciaArgentina/go-profiles/internal/http/rest"
 	"github.com/CienciaArgentina/go-profiles/utils"
+	"gopkg.in/yaml.v2"
 
 	"github.com/spf13/cobra"
 )
@@ -25,9 +26,20 @@ var (
 			defaults := map[string]string{
 				"Server.Port": "8080",
 				"Server.Host": "localhost",
+				"DB.Hostname": "localhost",
+				"DB.Database": "profile",
+				"DB.Username": "profile",
+				"DB.Password": "profile",
 			}
 
 			utils.InitConfiguration(&cfg, "user-profiles", "PROFILES", cfgFile, defaults)
+
+			if printConfigExample {
+				sample, _ := yaml.Marshal(cfg)
+				fmt.Println(string(sample))
+				os.Exit(0)
+			}
+
 		},
 		Run: func(cmd *cobra.Command, args []string) {
 			address := fmt.Sprintf("%s:%d", cfg.Server.Host, cfg.Server.Port)
