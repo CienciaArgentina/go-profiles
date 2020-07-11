@@ -2,12 +2,12 @@ package rest
 
 import (
 	"encoding/json"
-	"errors"
 	"net/http"
 	"net/http/httptest"
 	"testing"
 
 	"github.com/CienciaArgentina/go-profiles/domain"
+	"github.com/CienciaArgentina/go-profiles/internal/errors"
 	"github.com/CienciaArgentina/go-profiles/internal/profile"
 	"github.com/gin-gonic/gin"
 	"github.com/stretchr/testify/mock"
@@ -23,7 +23,15 @@ func (u *userProfileServiceMock) FindUserProfile(id int) (domain.UserProfile, er
 	return args.Get(0).(domain.UserProfile), args.Error(1)
 }
 
-func (u *userProfileServiceMock) GetOrUpdateUserProfile(domain.UserProfile) error {
+func (u *userProfileServiceMock) CreateUserProfile(domain.UserProfile) error {
+	return nil
+}
+
+func (u *userProfileServiceMock) UpdateUserProfile(int, domain.UserProfile) error {
+	return nil
+}
+
+func (u *userProfileServiceMock) DeleteUserProfile(int) error {
 	return nil
 }
 
@@ -35,7 +43,7 @@ func TestUserProfileController(t *testing.T) {
 	}
 
 	service.On("FindUserProfile", 1).Return(profileExpected, nil)
-	service.On("FindUserProfile", 2).Return(domain.UserProfile{}, errors.New("Not found"))
+	service.On("FindUserProfile", 2).Return(domain.UserProfile{}, errors.ErrUserProfileNotFound)
 
 	router := gin.Default()
 

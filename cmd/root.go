@@ -27,6 +27,7 @@ var (
 				"Server.Port": "8080",
 				"Server.Host": "localhost",
 				"DB.Hostname": "localhost",
+				"DB.Port":     "27017",
 				"DB.Database": "profile",
 				"DB.Username": "profile",
 				"DB.Password": "profile",
@@ -43,7 +44,10 @@ var (
 		},
 		Run: func(cmd *cobra.Command, args []string) {
 			address := fmt.Sprintf("%s:%d", cfg.Server.Host, cfg.Server.Port)
-			log.Fatal(rest.InitRouter(&cfg).Run(address))
+			router, finish := rest.InitRouter(&cfg)
+			defer finish()
+
+			log.Fatal(router.Run(address))
 		},
 	}
 )

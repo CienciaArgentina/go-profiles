@@ -3,8 +3,6 @@ package config
 import (
 	"errors"
 	"fmt"
-
-	"github.com/CienciaArgentina/go-backend-commons/config"
 )
 
 // Configuration for the User Profile resource
@@ -13,8 +11,17 @@ type Configuration struct {
 		Port uint32
 		Host string
 	}
-	DB      config.Database
+	DB      Database
 	Verbose bool `yaml:"-"`
+}
+
+// Database is the DB configuration struct extending config.DataDatabase
+type Database struct {
+	Username string `yaml:"username"`
+	Password string `yaml:"password"`
+	Hostname string `yaml:"hostname"`
+	Database string `yaml:"database"`
+	Port     int    `yaml:"port"`
 }
 
 // Validate verifies that the configuration is correct

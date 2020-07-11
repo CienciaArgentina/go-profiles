@@ -13,7 +13,7 @@ clean:
 	if [ -f ${BINARY} ] ; then rm ${BINARY} ; fi
 
 docker:
-	docker build -t go-profiles .
+	docker-compose build
 
 run:
 	docker-compose up --build -d

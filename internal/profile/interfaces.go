@@ -16,7 +16,9 @@ type UserProfileRepository interface {
 // UserProfileService defines the user profile related API
 type UserProfileService interface {
 	FindUserProfile(int) (domain.UserProfile, error)
-	GetOrUpdateUserProfile(domain.UserProfile) error
+	CreateUserProfile(domain.UserProfile) error
+	UpdateUserProfile(int, domain.UserProfile) error
+	DeleteUserProfile(int) error
 }
 
 // UserProfileController defines the user profile controller

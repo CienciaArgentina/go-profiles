@@ -1,0 +1,119 @@
+{
+    "userId": 1234,
+    "name": "John",
+    "userName": "john.doe",
+    "lastName": "Doe",
+    "email": "john@doe.com",
+    "identification": {
+      "identificationType": "DU",
+      "identificationId": "string",
+      "issuingDate": "2020-07-10T17:58:23Z",
+      "issuingCountry": "AR"
+    },
+    "socialNetwork": [
+      {
+        "socialNetworkName": "IG",
+        "userName": "johnny",
+        "url": "https://ig.com"
+      }
+    ],
+    "gender": {
+      "id": 0,
+      "description": "MASCULINO"
+    },
+    "address": {
+      "streetName": "Libertador",
+      "streetNumber": "1920",
+      "zipCode": "1234",
+      "department": "CABA",
+      "additionals": "...",
+      "country": "AR",
+      "stateOrProvince": "BA",
+      "city": "BA",
+      "locality": {
+        "id": 0,
+        "description": "Boedo"
+      },
+      "geo": {
+        "type": "Point",
+        "coordinates": {
+          "latitud": "123",
+          "longitud": "456"
+        }
+      }
+    },
+    "birthday": "2000-01-22T17:58:23Z",
+    "nationality": {
+      "id": 0,
+      "name": "AR"
+    },
+    "professionalExperience": [
+      {
+        "company": "Techint",
+        "position": "Intern",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+        "additionalInformation": "Eget egestas purus viverra accumsan in",
+        "startingDate": "2018-01-31T17:58:23Z",
+        "endDate": "2019-06-13T17:58:23Z",
+        "address": {
+          "streetName": "Independencia",
+          "streetNumber": "991",
+          "zipCode": "1442",
+          "department": "Caballito",
+          "additionals": "Ultrices neque ornare aenean euismod ",
+          "country": "AR",
+          "stateOrProvince": "CABA",
+          "city": "Buenos Aires",
+          "locality": {
+            "id": 0,
+            "description": "Caballito"
+          },
+          "geo": {
+            "type": "Point",
+            "coordinates": {
+              "latitud": "1234",
+              "longitud": "9823"
+            }
+          }
+        }
+      }
+    ],
+    "academicFormation": [
+      {
+        "type": {
+          "type": "DEGREE",
+          "description": "PhD"
+        },
+        "career": "Biologia",
+        "institution": "UBA",
+        "additional": "Exactas",
+        "university": {
+          "id": 0,
+          "name": "UBA",
+          "url": "https://uba.ar"
+        },
+        "status": {
+          "type": "ONGOING",
+          "description": " Adipiscing elit pellentesque habitant morbi."
+        },
+        "startingDate": "2016-07-14T17:58:23Z",
+        "endDate": "2019-07-15T17:58:23Z"
+      }
+    ],
+    "userContactPhoneNUmber": [
+      {
+        "type": "CEL",
+        "countryCode": 54,
+        "areaCode": 11,
+        "phoneNumber": 12345678
+      }
+    ],
+    "locale": "AR",
+    "timezone": "GMT",
+    "picture": "https://bla.com",
+    "publicProfile": {
+      "enabled": true,
+      "caaUserProfile": "https://bla.com"
+    },
+    "userBlocked": true
+  }
