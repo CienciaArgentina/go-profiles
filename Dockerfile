@@ -21,6 +21,7 @@ RUN \
 FROM scratch
 
 WORKDIR /app
+COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 COPY --from=builder /app/main .
 
 ENTRYPOINT ["/app/main"]

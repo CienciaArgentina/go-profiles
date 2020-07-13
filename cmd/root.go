@@ -31,6 +31,7 @@ var (
 				"DB.Database": "profile",
 				"DB.Username": "profile",
 				"DB.Password": "profile",
+				"DB.Protocol": "mongodb",
 			}
 
 			utils.InitConfiguration(&cfg, "user-profiles", "PROFILES", cfgFile, defaults)

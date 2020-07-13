@@ -6,8 +6,10 @@ services:
     environment: 
         PROFILES_SERVER_PORT: "8080"
         PROFILES_SERVER_HOST: "0.0.0.0"
-        PROFILES_DB_HOSTNAME: "mongo"
-        SCOPE: "local"
+        PROFILES_DB_HOSTNAME: "localhost"
+        PROFILES_DB_USERNAME: "profile"
+        PROFILES_DB_PASSWORD: "profile"
+        PROFILES_DB_PROTOCOL: "mongodb"
     depends_on:
       - mongo
     ports:

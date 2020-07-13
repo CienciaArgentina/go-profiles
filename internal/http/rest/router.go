@@ -41,8 +41,8 @@ func MapRoutes(r *gin.Engine, userProfileController profile.UserProfileControlle
 
 // NewMongoClient creates a new client to mongo db
 func NewMongoClient(cfg *config.Configuration) *mongo.Client {
-	uri := fmt.Sprintf("mongodb://%s:%s@%s:%d",
-		cfg.DB.Username, cfg.DB.Password, cfg.DB.Hostname, cfg.DB.Port)
+	uri := fmt.Sprintf("%s://%s:%s@%s/%s?retryWrites=true&w=majority",
+		cfg.DB.Protocol, cfg.DB.Username, cfg.DB.Password, cfg.DB.Hostname, cfg.DB.Database)
 
 	clientOptions := options.Client().ApplyURI(uri)
 

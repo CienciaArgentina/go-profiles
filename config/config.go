@@ -21,6 +21,7 @@ type Database struct {
 	Password string `yaml:"password"`
 	Hostname string `yaml:"hostname"`
 	Database string `yaml:"database"`
+	Protocol string `yaml:"protocol"`
 	Port     int    `yaml:"port"`
 }
 
