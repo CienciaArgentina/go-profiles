@@ -1,4 +1,5 @@
 version: '3'
+
 services:
   app:
     build: .
@@ -6,7 +7,7 @@ services:
     environment: 
         PROFILES_SERVER_PORT: "8080"
         PROFILES_SERVER_HOST: "0.0.0.0"
-        PROFILES_DB_HOSTNAME: "localhost"
+        PROFILES_DB_HOSTNAME: "mongo"
         PROFILES_DB_USERNAME: "profile"
         PROFILES_DB_PASSWORD: "profile"
         PROFILES_DB_PROTOCOL: "mongodb"
@@ -14,21 +15,37 @@ services:
       - mongo
     ports:
       - "8080:8080"
+    networks:
+      - testing
 
   mongo:
     image: mongo
     volumes:
       - ./data/mongo:/data/db
+      - ./sql:/docker-entrypoint-initdb.d/
     ports:
       - 27017:27017
+    expose: 
+      - 27017
     environment:
       MONGO_INITDB_ROOT_USERNAME: profile
       MONGO_INITDB_ROOT_PASSWORD: profile
+      MONGO_INITDB_DATABASE: profile
+    networks:
+      - testing
 
   mongo-express:
     image: mongo-express
     ports:
       - 8081:8081
+    depends_on: 
+      - mongo
     environment:
       ME_CONFIG_MONGODB_ADMINUSERNAME: profile
       ME_CONFIG_MONGODB_ADMINPASSWORD: profile
+    networks:
+      - testing
+
+networks:
+  testing:
+    driver: bridge
