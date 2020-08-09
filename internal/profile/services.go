@@ -35,6 +35,7 @@ func (u *userProfileService) UpdateUserProfile(id int, userProfile domain.UserPr
 			return err
 		}
 	}
+	userProfile.UserID = id
 	return u.repo.Update(userProfile)
 }
 
