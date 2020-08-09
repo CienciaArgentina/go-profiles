@@ -10,7 +10,7 @@ unittest:
 	go test -short  ./...
 
 clean:
-	if [ -f ${BINARY} ] ; then rm ${BINARY} ; fi
+	@if [ -f ${BINARY} ] ; then rm ${BINARY} ; fi
 
 docker:
 	docker-compose build
