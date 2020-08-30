@@ -23,5 +23,6 @@
 !.vscode/extensions.json
 *.code-workspace
 
-main
 go-profiles
+data
+.env

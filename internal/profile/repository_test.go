@@ -1,12 +1,16 @@
 package profile
 
-import "testing"
+import (
+	"testing"
+)
 
-func TestUserProfileRepository(t *testing.T) {
+func TestGet(t *testing.T) {
 	t.Run("get existent user", func(t *testing.T) {
 	})
 
-	t.Run("fails when invalid user", func(t *testing.T) {
+	t.Run("get non existent user", func(t *testing.T) {
+	})
 
+	t.Run("database problem", func(t *testing.T) {
 	})
 }

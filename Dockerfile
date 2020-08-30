@@ -1,6 +1,6 @@
 FROM golang:alpine as builder
 
-RUN apk add upx binutils git
+RUN apk --no-cache add upx binutils git
 
 WORKDIR /app
 
@@ -21,5 +21,7 @@ RUN \
 FROM scratch
 
 WORKDIR /app
+COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 COPY --from=builder /app/main .
+
 ENTRYPOINT ["/app/main"]

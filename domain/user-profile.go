@@ -4,16 +4,16 @@ import "time"
 
 // UserProfile defines model for UserProfile.
 type UserProfile struct {
-	UserID                 int                      `json:"userId"`
-	Name                   string                   `json:"name"`
-	UserName               string                   `json:"userName"`
-	LastName               string                   `json:"lastName"`
-	Email                  string                   `json:"email"`
+	UserID                 int                      `json:"userId" db:"id"`
+	Name                   string                   `json:"name" db:"name"`
+	UserName               string                   `json:"userName" db:"username"`
+	LastName               string                   `json:"lastName" db:"last_name"`
+	Email                  string                   `json:"email" db:"email"`
 	Identification         Identification           `json:"identification"`
 	SocialNetwork          []SocialNetwork          `json:"socialNetwork,omitempty"`
 	Gender                 Gender                   `json:"gender"`
 	Address                Address                  `json:"address,omitempty"`
-	Birthday               time.Time                `json:"birthday"`
+	Birthday               time.Time                `json:"birthday" time_format:"2006-01-02"`
 	Nationality            Nationality              `json:"nationality"`
 	ProfessionalExperience []ProfessionalExperience `json:"professionalExperience,omitempty"`
 	AcademicFormation      []AcademicFormation      `json:"academicFormation"`
@@ -30,7 +30,7 @@ type Identification struct {
 	IdentificationID   string    `json:"identificationId"`
 	IdentificationType string    `json:"identificationType"`
 	IssuingCountry     string    `json:"issuingCountry,omitempty"`
-	IssuingDate        time.Time `json:"issuingDate,omitempty"`
+	IssuingDate        time.Time `json:"issuingDate,omitempty" time_format:"2006-01-02"`
 }
 
 // SocialNetwork defines model for SocialNetwork.
@@ -90,9 +90,9 @@ type ProfessionalExperience struct {
 	Address               Address   `json:"address"`
 	Company               string    `json:"company"`
 	Description           string    `json:"description"`
-	EndDate               time.Time `json:"endDate,omitempty"`
+	EndDate               time.Time `json:"endDate,omitempty" time_format:"2006-01-02"`
 	Position              string    `json:"position"`
-	StartingDate          time.Time `json:"startingDate"`
+	StartingDate          time.Time `json:"startingDate" time_format:"2006-01-02"`
 }
 
 // AcademicFormation defines model for AcademicFormation.
