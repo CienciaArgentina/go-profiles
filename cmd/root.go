@@ -26,7 +26,7 @@ var (
 			defaults := map[string]string{
 				"Server.Port": "8080",
 				"Server.Host": "localhost",
-				"DB.Hostname": "ca-mongo-0.ca-mongo-svc",
+				"DB.Hostname": "ca-mongo-svc",
 				"DB.Port":     "27017",
 				"DB.Database": "profile",
 				"DB.Username": "profile",
