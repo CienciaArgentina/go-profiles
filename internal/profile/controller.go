@@ -2,6 +2,7 @@ package profile
 
 import (
 	"fmt"
+	"github.com/sirupsen/logrus"
 	"net/http"
 	"strconv"
 
@@ -9,7 +10,6 @@ import (
 	"github.com/CienciaArgentina/go-profiles/domain"
 	"github.com/CienciaArgentina/go-profiles/internal/errors"
 	"github.com/gin-gonic/gin"
-	"github.com/prometheus/common/log"
 )
 
 type userProfileController struct {
@@ -30,7 +30,7 @@ func (c *userProfileController) Get(ctx *gin.Context) {
 		err = ctx.AbortWithError(http.StatusBadRequest,
 			apierror.NewWithStatus(http.StatusBadRequest).WithMessage(fmt.Sprintf("%s: invalid format", rawID)))
 		if err != nil {
-			log.Error("Error while aborting", err)
+			logrus.Error("Error while aborting", err)
 		}
 	} else {
 		if up, err := c.service.FindUserProfile(id); err != nil {
@@ -74,7 +74,7 @@ func (c *userProfileController) Delete(ctx *gin.Context) {
 		err = ctx.AbortWithError(http.StatusBadRequest,
 			apierror.NewWithStatus(http.StatusBadRequest).WithMessage(fmt.Sprintf("%s: invalid format", rawID)))
 		if err != nil {
-			log.Error("Error while aborting", err)
+			logrus.Error("Error while aborting", err)
 		}
 	} else {
 		if err := c.service.DeleteUserProfile(id); err != nil {

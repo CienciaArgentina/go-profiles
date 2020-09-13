@@ -26,3 +26,4 @@
 go-profiles
 data
 .env
+.idea/

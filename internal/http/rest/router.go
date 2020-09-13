@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 	"log"
+	"os"
 	"time"
 
 	"github.com/CienciaArgentina/go-profiles/config"
@@ -41,8 +42,8 @@ func MapRoutes(r *gin.Engine, userProfileController profile.UserProfileControlle
 
 // NewMongoClient creates a new client to mongo db
 func NewMongoClient(cfg *config.Configuration) *mongo.Client {
-	uri := fmt.Sprintf("%s://%s:%s@%s/%s?retryWrites=true&w=majority",
-		cfg.DB.Protocol, cfg.DB.Username, cfg.DB.Password, cfg.DB.Hostname, cfg.DB.Database)
+	mongourl := os.Getenv("MONGO_URL")
+	uri := fmt.Sprintf("%s?retryWrites=true&w=majority", mongourl)
 
 	clientOptions := options.Client().ApplyURI(uri)
 
