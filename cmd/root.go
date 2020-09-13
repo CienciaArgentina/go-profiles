@@ -44,11 +44,10 @@ var (
 
 		},
 		Run: func(cmd *cobra.Command, args []string) {
-			address := fmt.Sprintf("%s:%d", cfg.Server.Host, cfg.Server.Port)
 			router, finish := rest.InitRouter(&cfg)
 			defer finish()
 
-			log.Fatal(router.Run(address))
+			log.Fatal(router.Run())
 		},
 	}
 )
