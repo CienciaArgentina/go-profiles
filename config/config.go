@@ -5,6 +5,7 @@ import (
 	"fmt"
 )
 
+// TODO: Remove me
 // Configuration for the User Profile resource
 type Configuration struct {
 	Server struct {
