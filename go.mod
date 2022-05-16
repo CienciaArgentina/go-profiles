@@ -4,8 +4,7 @@ go 1.14
 
 require (
 	github.com/CienciaArgentina/go-backend-commons v0.0.14
-	github.com/gin-gonic/gin v1.6.3
-	github.com/prometheus/common v0.4.0 // indirect
+	github.com/gin-gonic/gin v1.7.0
 	github.com/sirupsen/logrus v1.6.0
 	github.com/spf13/cobra v1.0.0
 	github.com/spf13/viper v1.7.1
